@@ -1,0 +1,56 @@
+{
+  "name": "ecs-coop",
+  "version": "1.0.0",
+  "description": "HomeSchool Coop Administration",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "proxy": "http://localhost:3000",
+  "scripts": {
+    "start_react": "react-scripts start",
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pdisney/ecs_coop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.5.0",
+    "create-react-app": "^3.4.1",
+    "express": "^4.16.2",
+    "mongodb": "^3.5.7",
+    "nodemailer": "^6.4.6",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "triple-beam": "^1.3.0",
+    "winston": "^3.2.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
