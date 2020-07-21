@@ -8,21 +8,14 @@ const fs = require('fs');
 const path = require('path');
 const MongoWrapper = require('./libs/mongodb/MongoWrapper');
 const logingInit = require('./libs/winston/loginit');
+const { monitorEventLoopDelay } = require('perf_hooks');
 
 
 
 const initGlobalVariables = () => {
-    global = {};
     global.collections = {};
-    global.collections.apps = 'apps';
-    global.collections.users = 'users';
-    global.collections.questions = 'questions';
-    global.collections.sources = 'sources';
-    global.collections.loginDetails = "loginDetails";
-    global.collections.analytics = 'analytics';
-    global.collections.notifications_ttl = 'notifications_ttl';
-    global.collections.feedback = 'feedback';
-    global.collections.coc_history = 'coc_history';
+    global.collections.students = 'students';
+
 
 };
 
@@ -30,15 +23,6 @@ const testInit = () => {
     const processenv = {
 
         NODE_ENV: "staging",
-
-
-        MONGO_BARNUM_USER: "barnumUser",
-        MONGO_BARNUM_PASSWORD: "nutepuNuw5St",
-        MONGO_ADMIN: "barnumAdmin",
-        MONGO_PASSWORD: "barnum456",
-        MONGO_CONNECTION: "54.40.187.27:27017/barnum?replicaSet=barnumSet",
-        MONGO_PORT: 27017,
-        MONGO_DATABASE: 'barnum',
 
         SECURE_API: false,
         PORT: 8080,
@@ -48,7 +32,6 @@ const testInit = () => {
         CERT: "",
         PASSPHRASE: "",
 
-        SMTP_ADDRESS: "smtp://mailhost.ecs:25"
     };
 
     process.env.MONGO_CONNECTION = processenv.MONGO_CONNECTION;
@@ -61,11 +44,13 @@ const testInit = () => {
 
 var main = async () => {
     try {
+        await logingInit.loggingInit();
         testInit();
         initGlobalVariables();
 
+        const mongo = new MongoWrapper("localhost", "ECS");
+        await mongo.establishConnection();
         // await logingInit.loggingInit();
-        console.log(process.env.MONGO_CONNECTION);
         // const mongo = new MongoWrapper(mongo_connection, database);
         //  await mongo.establishConnection();
         //* ****************************//
@@ -131,6 +116,60 @@ var main = async () => {
             res.sendFile(path.join(__dirname, 'build', 'index.js'))
 
         });
+
+        app.get('/api/students', async (req, res, next) => {
+            try {
+                const results = await mongo.find(global.collections.students, {});
+                console.debug(results);
+                res.status(200).json(results);
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
+
+        });
+
+        app.post('/api/student', async (req, res, next) => {
+            try {
+                const student = req.body;
+                console.debug("Input", req.body);
+                const results = await mongo.insert(global.collections.students, student);
+                res.status(200).json(results);
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
+
+        });
+
+        app.put('/api/student/:student_id', async (req, res, next) => {
+            try {
+                let update = req.body;
+                console.debug(update);
+                let query = { _id: mongo.getObjectId(req.params.student_id) };
+                const results = await mongo.update(global.collections.students, query, {$set: update});
+                console.debug(results);
+                res.status(200).json(results);
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
+
+        });
+
+        app.delete('/api/student/:student_id', async (req, res, next) => {
+            try {
+                let query = { _id: mongo.getObjectId(req.params.student_id) };
+                const results = await mongo.delete(global.collections.students,query);
+                console.debug(results);
+                res.status(200).json(results);
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
+
+        });
+
         /** **************        ***************** */
         /** ************** ROUTES ***************** */
         /** **************        ***************** */

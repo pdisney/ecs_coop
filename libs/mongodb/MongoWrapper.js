@@ -1,12 +1,13 @@
 const mongodb = require('mongodb');
-
+const ObjectID = require('mongodb').ObjectID;
 const MongoClient = mongodb.MongoClient;
-
+const GridFSBucket = mongodb.GridFSBucket;
+ 
 
 const sleep = time => new Promise((resolve) => {
     setTimeout(() => resolve(), time);
 });
-
+ 
 
 class MongoWrapper {
     constructor(connection_string, db_name) {
@@ -16,19 +17,19 @@ class MongoWrapper {
             }
             this.connection_string = connection_string;
             this.db_name = db_name;
-            //     await this.establishConnection(connection_string);
             return this;
         } catch (err) {
             console.error(err);
             throw err;
         }
     }
-
+ 
     async establishConnection() {
         try {
             if (!this.client || this.client === undefined || this.client === null) {
                 const options = {
-                    poolSize: 10,
+                    poolSize: 100,
+                    useUnifiedTopology: true 
                 };
                 console.debug(this.connection_string, options);
                 this.client = await MongoClient.connect(this.connection_string, options);
@@ -46,7 +47,7 @@ class MongoWrapper {
             return this.establishConnection();
         }
     }
-
+ 
     async closeConnection() {
         try {
             if (this.client) {
@@ -61,15 +62,19 @@ class MongoWrapper {
             this.client = null;
         }
     }
-
+ 
     getObjectId(id) {
-        return new mongodb.getObjectId(id);
+        return new ObjectID(id);
     }
-
+ 
+    IsValidObjectId(id){
+        return ObjectID.isValid(id);
+    }
+ 
     getGridFSBucket(query) {
-        return new mongodb.getGridFSBucket(this.db, query);
+        return new GridFSBucket(this.db, query);
     }
-
+ 
     async listCollections() {
         try {
             return await this.db.listCollections({}).toArray();
@@ -78,16 +83,28 @@ class MongoWrapper {
             return [];
         }
     }
-
-    async distinct(collection, key, query) {
+ 
+    async aggregate(collection, query, sort) {
         try {
-            return await this.db.distinct(collection, key, query).toArray();
+            const result = await this.db.collection(collection).aggregate(query);
+            if (sort)
+                result.sort(sort);
+            return result.toArray();
         } catch (err) {
             console.error("Error", err);
             return [];
         }
     }
-
+ 
+    async distinct(collection, key, query) {
+        try {
+            return await this.db.collection(collection).distinct(key, query);
+        } catch (err) {
+            console.error("Error", err);
+            return [];
+        }
+    }
+ 
     async findOne(collection, query) {
         try {
             return await this.db.collection(collection).findOne(query);
@@ -96,56 +113,44 @@ class MongoWrapper {
             return [];
         }
     }
-
-    async find(collection, query, projection, limit, skip, sort) {
+ 
+    /*  async findCount(collection, query, projection) {
+          try {
+              return await this.db.collection(collection).find(query, projection).count();
+          } catch (err) {
+              console.error("Error", err);
+              return -1;
+          }
+      }*/
+ 
+    async find(collection, query, projection, count, limit, skip, sort) {
         try {
-
-            if (sort && skip && limit) {
-                return await this.db.collection(collection).find(query, projection).limit(limit).skip(skip)
-                    .sort(sort)
-                    .toArray();
-            }
-            if (sort && skip) {
-                return await this.db.collection(collection).find(query, projection).skip(skip).sort(sort)
-                    .toArray();
-            }
-            if (sort && limit) {
-                return await this.db.collection(collection).find(query, projection).limit(limit).sort(sort)
-                    .toArray();
-
-            }
-            if (skip && limit) {
-                return await this.db.collection(collection).find(query, projection).limit(limit).skip(skip)
-                    .toArray();
-            }
-            if (sort) {
-                return await this.db.collection(collection).find(query, projection).sort(sort).toArray();
-            }
-            if (skip) {
-                return await this.db.collection(collection).find(query, projection).skip(skip).toArray();
-            }
-            if (limit) {
-                return await this.db.collection(collection).find(query, projection).limit(limit).toArray();
-            }
-
-            return await this.db.collection(collection).find(query, projection).toArray();
-
-
+            console.debug(collection, query);
+            const result = await this.db.collection(collection).find(query, projection);
+            if (count) return result.count();
+            if (sort)
+                result.sort(sort);
+            if (skip)
+                result.skip(skip);
+            if (limit)
+                result.limit(limit);
+            return result.toArray();
         } catch (err) {
             console.error("Error", err);
-            return [];
+            return { "error": err };
         }
     }
-
+ 
     async update(collection, filter, update, options) {
         try {
+          //  console.debug('mongo update', collection, filter, update, options);
             return await this.db.collection(collection).updateOne(filter, update, options);
         } catch (err) {
             console.error("Error", err);
             return { error: "document not updated" };
         }
     }
-
+ 
     async insert(collection, document) {
         try {
             return await this.db.collection(collection).insertOne(document);
@@ -154,7 +159,7 @@ class MongoWrapper {
             return { error: "document not inserted" };
         }
     }
-
+ 
     async delete(collection, query) {
         try {
             return await this.db.collection(collection).deleteOne(query);
@@ -163,7 +168,7 @@ class MongoWrapper {
             return { error: "document not deleted" };
         }
     }
-
+ 
     async remove(collection, query) {
         try {
             return await this.db.collection(collection).remove(query);
@@ -173,6 +178,7 @@ class MongoWrapper {
         }
     }
 }
-
+ 
 
 module.exports = MongoWrapper;
+ 
