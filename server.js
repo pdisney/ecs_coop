@@ -15,6 +15,7 @@ const { monitorEventLoopDelay } = require('perf_hooks');
 const initGlobalVariables = () => {
     global.collections = {};
     global.collections.students = 'students';
+    global.collections.users = 'users';
 
 
 };
@@ -168,6 +169,67 @@ var main = async () => {
                 res.status(500).send(err);
             }
 
+        });
+
+        /*********************************************/
+        /* Get all students associated with a guardian
+        ***********************************************/
+        app.get('/api/:guardian/students', async (req, res, next)=>{
+            try{
+                let query = {guardians: req.params.guardian};
+                const results = await mongo.find(global.collections.students, query);
+                console.debug(results);
+                if (results.length != 0){
+                    res.status(200).json(results);
+                }else{
+                    res.status(400).json({msg: `No students with guardian ${req.params.guardian}`});
+                }
+
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
+        });
+
+        /*********************************************/
+        /* Get all families associated with a reviewer
+        ***********************************************/
+        app.get('/api/:reviewer/families', async (req, res, next)=>{
+            try{
+                let family_query = {reviewer: req.params.reviewer};
+                const results = await mongo.find(global.collections.users, family_query);
+                console.debug(results);
+                if (results.length != 0){
+                    res.status(200).json(results);
+                }else{
+                    res.status(400).json({msg: `No families assigned to ${req.params.reviewer}`});
+                }
+
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
+        });
+
+        /*********************************************/
+        /* Get all students associated with a guardian
+        /*  that are homeschooled
+        ***********************************************/
+        app.get('/api/:guardian/students/homeschooled', async (req, res, next)=>{
+            try{
+                let query = {$and: [{guardians: req.params.guardian}, {homeschooled: true}]};
+                const results = await mongo.find(global.collections.students, query);
+                console.debug(results);
+                if (results.length != 0){
+                    res.status(200).json(results);
+                }else{
+                    res.status(400).json({msg: `No students with guardian ${req.params.guardian}`});
+                }
+
+            } catch (err) {
+                console.error(err);
+                res.status(500).send(err);
+            }
         });
 
         /** **************        ***************** */

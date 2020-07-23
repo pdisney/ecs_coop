@@ -1,0 +1,421 @@
+[32m 2020-07-23 15:35:34 info : Logging Initialized  [39m
+[34m 2020-07-23 15:35:34 debug : mongodb://localhost {[39m
+[34m  "poolSize": 100,[39m
+[34m  "useUnifiedTopology": true[39m
+[34m} [39m
+[32m 2020-07-23 15:35:34 info : Mongo Connection Pool Established  [39m
+[32m 2020-07-23 15:35:34 info : ECS COOP Listening on 8080 [39m
+[34m 2020-07-23 15:35:43 debug : students {} [39m
+[34m 2020-07-23 15:36:09 debug : [[39m
+[34m  {[39m
+[34m    _id: 5f0607aeb67fca2029663b9e,[39m
+[34m    name: { first: 'Raya', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@ygmail.com', [length]: 2 ],[39m
+[34m    homeschooled: false,[39m
+[34m    birthday: '01/01/2015',[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f0607c6b67fca2029663bac,[39m
+[34m    name: { first: 'Damien', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@ygmail.com', [length]: 2 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '01/01/2010',[39m
+[34m    grade: 4,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: { name: '3rd grade math', description: '3rd grade math' },[39m
+[34m        Science: { name: 'Biology' },[39m
+[34m        LA: { name: 'Early American Literature' },[39m
+[34m        Music: { name: 'Choir' },[39m
+[34m        PE: { name: 'Basketball' },[39m
+[34m        Art: { name: 'Drawing' },[39m
+[34m        Health: { name: 'Health' },[39m
+[34m        Bible: { name: 'New Testament Studies' }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: { name: '4th grade math' },[39m
+[34m        Science: { name: 'Chemistry' },[39m
+[34m        LA: { name: 'Modern American Literature' },[39m
+[34m        Music: { name: 'Choir' },[39m
+[34m        PE: { name: 'Basketball' },[39m
+[34m        Art: { name: 'Sculpting' },[39m
+[34m        Health: { name: 'Health' },[39m
+[34m        Bible: { name: 'Old Testament Studies' }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f0607dab67fca2029663bb3,[39m
+[34m    name: { first: 'Doris', last: 'Tyler' },[39m
+[34m    guardians: [ 'dorissmom@yahoo.com', [length]: 1 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '02/01/2007',[39m
+[34m    grade: 7,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: false,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: {[39m
+[34m          name: 'Math1',[39m
+[34m          description: 'Math',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Biology1', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Early American Literature1',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir1', grade: 4 },[39m
+[34m        PE: { name: 'Basketball1', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Drawing1', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health1', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'New Testament Studies1', credit_hours: 2, grade: 3.5 }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: {[39m
+[34m          name: 'Gemeotry1',[39m
+[34m          description: 'Intro to geometry using some textbook',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Chemistry1', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Modern American Literature1',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir1', grade: 4 },[39m
+[34m        PE: { name: 'Basketball1', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Sculpting1', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health1', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'Old Testament Studies1', credit_hours: 2, grade: 3.5 }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f060af3b67fca2029663ce7,[39m
+[34m    name: { first: 'Rosalie', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@gmail.com', [length]: 2 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '01/01/2005',[39m
+[34m    grade: 9,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: {[39m
+[34m          name: 'Algebra',[39m
+[34m          description: 'algebra with trig',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Biology', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Early American Literature',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir', grade: 4 },[39m
+[34m        PE: { name: 'Basketball', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Drawing', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'New Testament Studies', credit_hours: 2, grade: 3.5 }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: {[39m
+[34m          name: 'Gemeotry',[39m
+[34m          description: 'Intro to geometry using some textbook',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Chemistry', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Modern American Literature',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir', grade: 4 },[39m
+[34m        PE: { name: 'Basketball', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Sculpting', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'Old Testament Studies', credit_hours: 2, grade: 3.5 }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  [length]: 4[39m
+[34m]  [39m
+[34m 2020-07-23 15:36:09 debug : students {} [39m
+[34m 2020-07-23 15:36:09 debug : [[39m
+[34m  {[39m
+[34m    _id: 5f0607aeb67fca2029663b9e,[39m
+[34m    name: { first: 'Raya', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@ygmail.com', [length]: 2 ],[39m
+[34m    homeschooled: false,[39m
+[34m    birthday: '01/01/2015',[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f0607c6b67fca2029663bac,[39m
+[34m    name: { first: 'Damien', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@ygmail.com', [length]: 2 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '01/01/2010',[39m
+[34m    grade: 4,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: { name: '3rd grade math', description: '3rd grade math' },[39m
+[34m        Science: { name: 'Biology' },[39m
+[34m        LA: { name: 'Early American Literature' },[39m
+[34m        Music: { name: 'Choir' },[39m
+[34m        PE: { name: 'Basketball' },[39m
+[34m        Art: { name: 'Drawing' },[39m
+[34m        Health: { name: 'Health' },[39m
+[34m        Bible: { name: 'New Testament Studies' }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: { name: '4th grade math' },[39m
+[34m        Science: { name: 'Chemistry' },[39m
+[34m        LA: { name: 'Modern American Literature' },[39m
+[34m        Music: { name: 'Choir' },[39m
+[34m        PE: { name: 'Basketball' },[39m
+[34m        Art: { name: 'Sculpting' },[39m
+[34m        Health: { name: 'Health' },[39m
+[34m        Bible: { name: 'Old Testament Studies' }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f0607dab67fca2029663bb3,[39m
+[34m    name: { first: 'Doris', last: 'Tyler' },[39m
+[34m    guardians: [ 'dorissmom@yahoo.com', [length]: 1 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '02/01/2007',[39m
+[34m    grade: 7,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: false,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: {[39m
+[34m          name: 'Math1',[39m
+[34m          description: 'Math',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Biology1', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Early American Literature1',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir1', grade: 4 },[39m
+[34m        PE: { name: 'Basketball1', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Drawing1', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health1', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'New Testament Studies1', credit_hours: 2, grade: 3.5 }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: {[39m
+[34m          name: 'Gemeotry1',[39m
+[34m          description: 'Intro to geometry using some textbook',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Chemistry1', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Modern American Literature1',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir1', grade: 4 },[39m
+[34m        PE: { name: 'Basketball1', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Sculpting1', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health1', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'Old Testament Studies1', credit_hours: 2, grade: 3.5 }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f060af3b67fca2029663ce7,[39m
+[34m    name: { first: 'Rosalie', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@gmail.com', [length]: 2 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '01/01/2005',[39m
+[34m    grade: 9,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: {[39m
+[34m          name: 'Algebra',[39m
+[34m          description: 'algebra with trig',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Biology', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Early American Literature',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir', grade: 4 },[39m
+[34m        PE: { name: 'Basketball', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Drawing', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'New Testament Studies', credit_hours: 2, grade: 3.5 }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: {[39m
+[34m          name: 'Gemeotry',[39m
+[34m          description: 'Intro to geometry using some textbook',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Chemistry', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Modern American Literature',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir', grade: 4 },[39m
+[34m        PE: { name: 'Basketball', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Sculpting', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'Old Testament Studies', credit_hours: 2, grade: 3.5 }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  [length]: 4[39m
+[34m]  [39m
+[34m 2020-07-23 15:36:44 debug : students {[39m
+[34m  "guardians": "rosaliesmom@yahoo.com"[39m
+[34m} [39m
+[34m 2020-07-23 15:36:44 debug : [[39m
+[34m  {[39m
+[34m    _id: 5f0607aeb67fca2029663b9e,[39m
+[34m    name: { first: 'Raya', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@ygmail.com', [length]: 2 ],[39m
+[34m    homeschooled: false,[39m
+[34m    birthday: '01/01/2015',[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f0607c6b67fca2029663bac,[39m
+[34m    name: { first: 'Damien', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@ygmail.com', [length]: 2 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '01/01/2010',[39m
+[34m    grade: 4,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: { name: '3rd grade math', description: '3rd grade math' },[39m
+[34m        Science: { name: 'Biology' },[39m
+[34m        LA: { name: 'Early American Literature' },[39m
+[34m        Music: { name: 'Choir' },[39m
+[34m        PE: { name: 'Basketball' },[39m
+[34m        Art: { name: 'Drawing' },[39m
+[34m        Health: { name: 'Health' },[39m
+[34m        Bible: { name: 'New Testament Studies' }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: { name: '4th grade math' },[39m
+[34m        Science: { name: 'Chemistry' },[39m
+[34m        LA: { name: 'Modern American Literature' },[39m
+[34m        Music: { name: 'Choir' },[39m
+[34m        PE: { name: 'Basketball' },[39m
+[34m        Art: { name: 'Sculpting' },[39m
+[34m        Health: { name: 'Health' },[39m
+[34m        Bible: { name: 'Old Testament Studies' }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  {[39m
+[34m    _id: 5f060af3b67fca2029663ce7,[39m
+[34m    name: { first: 'Rosalie', last: 'Whitley' },[39m
+[34m    guardians: [ 'rosaliesmom@yahoo.com', 'rosaliesdad@gmail.com', [length]: 2 ],[39m
+[34m    homeschooled: true,[39m
+[34m    birthday: '01/01/2005',[39m
+[34m    grade: 9,[39m
+[34m    County: 'Washington',[39m
+[34m    county_notified: true,[39m
+[34m    transcript: {[39m
+[34m      '2018': {[39m
+[34m        Math: {[39m
+[34m          name: 'Algebra',[39m
+[34m          description: 'algebra with trig',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Biology', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Early American Literature',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir', grade: 4 },[39m
+[34m        PE: { name: 'Basketball', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Drawing', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'New Testament Studies', credit_hours: 2, grade: 3.5 }[39m
+[34m      },[39m
+[34m      '2019': {[39m
+[34m        Math: {[39m
+[34m          name: 'Gemeotry',[39m
+[34m          description: 'Intro to geometry using some textbook',[39m
+[34m          credit_hours: 4,[39m
+[34m          grade: 4,[39m
+[34m          hs_credit: true[39m
+[34m        },[39m
+[34m        Science: { name: 'Chemistry', credit_hours: 4, grade: 3.5 },[39m
+[34m        LA: {[39m
+[34m          name: 'Modern American Literature',[39m
+[34m          credit_hours: 3,[39m
+[34m          grade: 4[39m
+[34m        },[39m
+[34m        Music: { name: 'Choir', grade: 4 },[39m
+[34m        PE: { name: 'Basketball', credit_hours: 3, grade: 4 },[39m
+[34m        Art: { name: 'Sculpting', credit_hours: 3, grade: 4 },[39m
+[34m        Health: { name: 'Health', credit_hours: 4, grade: 3 },[39m
+[34m        Bible: { name: 'Old Testament Studies', credit_hours: 2, grade: 3.5 }[39m
+[34m      }[39m
+[34m    }[39m
+[34m  },[39m
+[34m  [length]: 3[39m
+[34m]  [39m
+[34m 2020-07-23 15:36:52 debug : users {[39m
+[34m  "reviewer": "rosaliesmom@yahoo.com"[39m
+[34m} [39m
+[34m 2020-07-23 15:36:52 debug : [[39m
+[34m  {[39m
+[34m    _id: 5f060b40b67fca2029663d0f,[39m
+[34m    email: 'dorissmom@yahoo.com',[39m
+[34m    password: 'dorisrocks123',[39m
+[34m    phone: '012-345-6789',[39m
+[34m    address: '123 Washington st, Washington',[39m
+[34m    roles: [ 'family', [length]: 1 ],[39m
+[34m    new_to_homeschooling: true,[39m
+[34m    church: 'None',[39m
+[34m    reviewer: 'rosaliesmom@yahoo.com'[39m
+[34m  },[39m
+[34m  [length]: 1[39m
+[34m]  [39m
